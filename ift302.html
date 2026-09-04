@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olawuyi Israel Portfolio Website</title>
+    <style>
+        body{
+            margin: 2%;
+        }
+        #cover_photo{
+            width: 100%;
+            height: 200px;
+        }
+        #profile_photo{
+            margin: 0 auto;
+            display: block;
+            height: auto;
+            width: 30%
+        }
+        #contactForm{
+        font-size : 15px;
+        font-weight: bold;
+        margin: 0 auto;
+        width: 80%;
+        max-width: 500px;
+        }
+        .contactForm textarea {
+        width: 100%;
+        height: 35px;
+        padding: 5px;
+        margin: 5px 0 15px;
+        border: 2px solid gray;
+        border-radius: 10px;
+        box-sizing: border-box;
+        }
+        .contactForm #message{
+            height: 120px;
+        }
+
+        h3.contactForm {
+            text-align: center;
+
+        }
+        #contactForm button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 25px;
+        border-radius: 8px;
+    }
+    </style>
 </head>
-<body style="background-color : rgb(177, 181, 117)">
+<body>
     <div>
+        <header>
+            <img src="images/cover_photo.png" alt="An Cover Photo for my Profile" id="cover_photo" class="my_pictures"/>
+        </header>
         <h1 style="text-align : center">
             <u>
                 Olawuyi Israel Portfolio Website
@@ -19,6 +67,7 @@
                 Who am I?
             </u>
         </h2>
+        <img src="images/israel_olawuyi.jpg" alt="An Image of Israel Olawuyi" id="profile_photo" class="my_pictures"/>
         <p style="justify-content: center; padding:20px">
             I am <b>Olawuyi Israel Mobolaji</b> with Matric Number <b>250398</b>. I am a Machine Learning Engineer 
             with particular interest in the Research area of this field. I am also looking to transition to Quantum
@@ -28,12 +77,12 @@
 
 
     <div>
-        <h1 style="text-align : center">
+        <h1 style="text-align : center" class="skills">
             <u>
                 Skills
                 </u>
             </h1>
-        <p>
+        <p class="languages">
             <h3>
                 Languages:
             </h3>
@@ -43,28 +92,34 @@
                 </li>
             </ul>
         </p>
-        <p>
+        <p class="libraries">
             <h3>
                 Libraries/Frameworks: 
                 </h3>
             <ul>
+                <li>
                 Pandas, NumPy, Scikit-Learn, Matplotlib, Seaborn, Tkinter, Kivy, Pytorch, Transformers, Llama.cpp
+                </li>
                 </ul>
         </p>
-        <p>
+        <p class="tools">
             <h3>
                 Tools & Platforms:
                 </h3>
             <ul>
+                <li>
                 Git/GitHub, PowerBi, Docker, Linux, Windows, JIRA, Trello, Excel, Payoneer (Financial Workflows)
+                </li>
                 </ul>
         </p>
-        <p>
+        <p class = "specialization">
             <h3>
                 Specialised: 
                 </h3>
             <ul>
+                <li>
                 AI Research, Model building, Fine tuning, Model deployment, Web Scraping (Selenium/BeautifulSoup), Data Cleaning, Outlier Detection.
+                </li>
                 </ul>
         </p>
     </div>
@@ -77,14 +132,15 @@
     <div style="text-align : center; display:flex; gap: 15px; justify-content: center">
         
         <div style="flex: 1; padding : 10px">
-            <h3>The Overwatch Nation Builders</h3>
+            <h3>Broken Link Checker</h3>
+            <img src="images/broken_link_checker.jpeg" alt="My Broken Link Check In Use", width="280px">
             <p>
-                A website dedicated to writing articles on the concept of nation building and development process, 
-                how to foster it and examples worth studying in our world today.
+                A SEO tool to help website SEO experts easily detect and fix broken links on a webpage.
             </p>
         </div>
         <div style="flex: 1; padding : 10px">
             <h3>Healthy Sleep Enforcer App</h3>
+            <img src="images/sleep_enforcer.png" alt="My Home View of the Sleep enforcer app", width="280px">
             <p>
                 A health‑focused Windows app developed to help us, most especially, 
                 students improve their sleep schedules but locking them out of their windows devices once a set sleep schedule time is reached. 
@@ -95,6 +151,7 @@
         </div>
         <div style="flex:1; padding : 10px">
             <h3>Code Persona Powered By Professor Lowacode</h3>
+            <img src="images/code_persona.png" alt="Professor Lowacode at work", width="280px">
             <p>
                 A local coding setup which helps students as well as technically related people to be able to study, 
                 coding concepts as well as guide them through their various coding tasks and projects.
@@ -114,5 +171,37 @@
 <p>
     You can also send me a whatsapp message at <b>09165126149</b> or send me an email at <b>olawuyiisrael42@gmail.com</b> but remeber, physical interaction better in most cases.
 </p>
+<h3 class="contactForm", id="contactFormh3">
+    <u>
+     Contact Form
+    </u>
+    </h3>
+
+<form class="contactForm", id="contactForm">
+    <label for="name">Name: </label>
+    <br>
+<textarea placeholder="Enter your name", id="name", name="name">
+</textarea>
+<br>
+<label for="email">Email: </label>
+<br>
+<textarea placeholder="Enter your email address", id="email", name="email">
+</textarea>
+<br>
+<label for="title">Title: </label>
+<br>
+<textarea placeholder="Enter your title of your message", id="title", name="title">
+</textarea>
+<br>
+<label for="message">Message: </label>
+<br>
+<textarea placeholder="Enter your message", id="message", name="message">
+</textarea>
+<br>
+<button>
+    Submit
+</button>
+</form>
+
 </body>
 </html>
