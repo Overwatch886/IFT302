@@ -5,12 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olawuyi Israel Portfolio Website</title>
     <style>
-        body{
+        header {
+            margin: 0;
+            width: 100%;
+        }
+        main{
             margin: 2%;
+            padding: 2%;
+            background-color: #f4f7f6;
+            color: #243238;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+        body {
+            margin: 0;
+            background-color: #f4f7f6;
+            color: #243238;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+        h1, h2, h3 {
+            color: #123c4a;
         }
         #cover_photo{
+            display: block;
             width: 100%;
             height: 200px;
+            object-fit: cover;
         }
         #profile_photo{
             margin: 0 auto;
@@ -47,20 +66,64 @@
         margin: 10px auto;
         padding: 10px 25px;
         border-radius: 8px;
-    }
+        background-color: #168c89;
+        color: white;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 8px;
+        }
+        .project-carousel{
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .project-track{
+            display: flex;
+            transition: transform 1s ease-in-out;
+
+        }
+        .project-card{
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            text-align: center;
+            flex:1; 
+            background-color: white;
+            border: 1px solid #d5e0df;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+        }
+        .project-card img{
+            width: 70%;
+            transition: transform 0.4s ease;
+            cursor: pointer
+        }
+        .project-card img:hover{
+            transform: scale(1.5);
+        }
+        .project-card img.zoomed{
+            transform: scale(1.5);
+        }
+        button {
+            cursor: pointer;    
+        }
+
+        #contactForm button:hover {
+            background-color: #0f6967
+        }
     </style>
 </head>
 <body>
-    <div>
         <header>
             <img src="images/cover_photo.png" alt="An Cover Photo for my Profile" id="cover_photo" class="my_pictures"/>
         </header>
+        <main>
+        <div>
         <h1 style="text-align : center">
             <u>
                 Olawuyi Israel Portfolio Website
             </u>
             </h1>
-        </div>
     </br>
         <h2 style="text-align : center">
             <u>
@@ -129,36 +192,32 @@
                 My Projects
                 </u>
             </h2>
-    <div style="text-align : center; display:flex; gap: 15px; justify-content: center">
-        
-        <div style="flex: 1; padding : 10px">
-            <h3>Broken Link Checker</h3>
-            <img src="images/broken_link_checker.jpeg" alt="My Broken Link Check In Use", width="280px">
-            <p>
-                A SEO tool to help website SEO experts easily detect and fix broken links on a webpage.
-            </p>
-        </div>
-        <div style="flex: 1; padding : 10px">
-            <h3>Healthy Sleep Enforcer App</h3>
-            <img src="images/sleep_enforcer.png" alt="My Home View of the Sleep enforcer app", width="280px">
-            <p>
-                A health‑focused Windows app developed to help us, most especially, 
-                students improve their sleep schedules but locking them out of their windows devices once a set sleep schedule time is reached. 
-                This app has helped prevent many unecessary overtime work and digital distractions, better fostering good health as well as activeness in the day 
-                when there is truly work to be done. 
-            
-            </p>
-        </div>
-        <div style="flex:1; padding : 10px">
-            <h3>Code Persona Powered By Professor Lowacode</h3>
-            <img src="images/code_persona.png" alt="Professor Lowacode at work", width="280px">
-            <p>
-                A local coding setup which helps students as well as technically related people to be able to study, 
-                coding concepts as well as guide them through their various coding tasks and projects.
-                It functions locally on users PCs under memory constraints of 8GB RAM and above, meaning, it is available to work on PCs of the average student.
-            </p>
-        </div>
+    
+    </div>
 
+    <div class="project-carousel">
+        <div class="project-track">
+            <div class="project-card">
+                <h3>Broken Link Checker</h3>
+                <img src="images/broken_link_checker.jpeg"
+                     alt="My Broken Link Checker project">
+                <p>A SEO tool for detecting broken links.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Healthy Sleep Enforcer App</h3>
+                <img src="images/sleep_enforcer.png"
+                     alt="My Sleep Enforcer app">
+                <p>A Windows app that helps users maintain healthy sleep schedules.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Code Persona</h3>
+                <img src="images/code_persona.png"
+                     alt="Professor Lowacode at work">
+                <p>A local coding assistant for students and developers.</p>
+            </div>
+        </div>
     </div>
 <h3>
     <u>
@@ -169,7 +228,7 @@
     To contact me you can easily walk up to me and speak to me and I would answer to the best of my abilities
 </p>
 <p>
-    You can also send me a whatsapp message at <b>09165126149</b> or send me an email at <b>olawuyiisrael42@gmail.com</b> but remeber, physical interaction better in most cases.
+    You can also send me a whatsapp message at <b id="phone_number">09165126149</b> or send me an email at <b id="email">olawuyiisrael42@gmail.com</b> but remember, physical interaction is better in most cases.
 </p>
 <h3 class="contactForm", id="contactFormh3">
     <u>
@@ -202,6 +261,33 @@
     Submit
 </button>
 </form>
+</main>
 
+
+
+ <script>
+    const track = document.querySelector(".project-track");
+    const images = document.querySelectorAll(".project-card img");
+
+    let currentProject = 0;
+
+    setInterval(() => {
+        currentProject++;
+
+        if (currentProject >= images.length) {
+            currentProject = 0;
+        }
+
+        track.style.transform =
+            `translateX(-${currentProject * 100}%)`;
+    }, 4000);
+
+    images.forEach((image) => {
+        image.addEventListener("click", () => {
+            image.classList.toggle("zoomed");
+        });
+    });
+</script>
 </body>
+
 </html>
