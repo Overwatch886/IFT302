@@ -73,8 +73,5 @@ contactForm.addEventListener("submit", async (event)=>{
         console.error("Submission error:", error);
         showStatus("Message could not be sent. Try again later", "error");
     }
-    
-    
-
 });
 
