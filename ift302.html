@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olawuyi Israel Portfolio Website</title>
     <style>
-        header {
-            margin: 0;
-            width: 100%;
-        }
         main{
             margin: 2%;
             padding: 2%;
@@ -28,8 +24,8 @@
         #cover_photo{
             display: block;
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto;
+            /*object-fit: cover;*/
         }
         #profile_photo{
             margin: 0 auto;
@@ -44,7 +40,7 @@
         width: 80%;
         max-width: 500px;
         }
-        .contactForm textarea {
+        .contactForm textarea, .contactForm input {
         width: 100%;
         height: 35px;
         padding: 5px;
@@ -110,6 +106,47 @@
 
         #contactForm button:hover {
             background-color: #0f6967
+        }
+        .feedback{
+            display:flex;
+            opacity: 0;
+            visibility: hidden;
+            align-items: center;
+            gap: 10px;
+            width: fit-content;
+            margin: 20px auto;
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            transition: opacity 0.8s ease, visibility 0s linear 0.8s;
+        }
+        .feedback.show {
+            opacity:1;
+            visibility: visible;
+            transition: opacity 0.8s ease;
+        }
+        .checkmark{
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: clamp(22px, 6vw, 32px);
+            width: clamp(22px, 6vw, 32px);
+            background-color: #28a745;
+            border-radius: 50%;
+            animation: successAnimation 1s ease-in-out;
+        }
+        @keyframes successAnimation {
+            0%{
+                transform: scale(0);
+            }
+            70% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+            
         }
     </style>
 </head>
@@ -239,54 +276,35 @@
 <form class="contactForm", id="contactForm">
     <label for="name">Name: </label>
     <br>
-<textarea placeholder="Enter your name", id="name", name="name">
-</textarea>
+<input type="text" placeholder="Enter your name", id="name", name="name" required/>
 <br>
 <label for="email">Email: </label>
 <br>
-<textarea placeholder="Enter your email address", id="email", name="email">
-</textarea>
+<input placeholder="Enter your email address", id="email", name="email" type="email" required/>
 <br>
 <label for="title">Title: </label>
 <br>
-<textarea placeholder="Enter your title of your message", id="title", name="title">
-</textarea>
+<input type="text" placeholder="Enter your title of your message", id="title", name="title" required/>
 <br>
 <label for="message">Message: </label>
 <br>
-<textarea placeholder="Enter your message", id="message", name="message">
+<textarea placeholder="Enter your message", id="message", name="message" required>
 </textarea>
 <br>
-<button>
+<button type="submit">
     Submit
 </button>
 </form>
+<div id="successMessage" class="feedback" role="status" aria-live="polite">
+    <span class="checkmark" id="message_success_checkmark">✓</span>
+    <span id="message_success_text">Message sent successfully!</span>
+</div>
 </main>
 
 
 
- <script>
-    const track = document.querySelector(".project-track");
-    const images = document.querySelectorAll(".project-card img");
-
-    let currentProject = 0;
-
-    setInterval(() => {
-        currentProject++;
-
-        if (currentProject >= images.length) {
-            currentProject = 0;
-        }
-
-        track.style.transform =
-            `translateX(-${currentProject * 100}%)`;
-    }, 4000);
-
-    images.forEach((image) => {
-        image.addEventListener("click", () => {
-            image.classList.toggle("zoomed");
-        });
-    });
+ <script src="script/script.js">
+    
 </script>
 </body>
 
